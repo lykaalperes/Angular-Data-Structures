@@ -1,0 +1,28 @@
+<h2>Employee List</h2>
+
+<form (submit)="addEmployee()" #employeeForm="ngForm">
+  <input type="text" [(ngModel)]="newEmployee.name" name="name" placeholder="Employee Name" required /><br><br>
+  <input type="text" [(ngModel)]="newEmployee.position" name="position" placeholder="Position" required /><br><br>
+  <button type="submit">Add Employee</button>
+</form><br>
+
+<table>
+  <thead>
+  <tr>
+    <th>ID</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Name</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Position</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let employee of employees">
+    <td>{{ employee.id }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ employee.name }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ employee.position }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>
+      <button (click)="removeEmployee(employee.id)">Remove</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
