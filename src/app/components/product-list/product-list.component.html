@@ -1,0 +1,33 @@
+<h2>Product List</h2>
+
+<form (submit)="addProduct()">
+  <input type="text" [(ngModel)]="newProduct.name" name="name" placeholder="Product Name" required />
+  <br><input type="number" [(ngModel)]="newProduct.quantity" name="quantity" placeholder="Quantity" required min="1" />
+  <br><br><button type="submit">Add Product</button>
+</form><br>
+
+<br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Quantity</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Sold</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Remaining</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products">
+    <td>{{ product.name }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ product.quantity }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ product.sold }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ product.remaining }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>
+      <button (click)="sellProduct(product.name)">Sell</button>&nbsp;&nbsp;
+      <button (click)="removeProduct(product.name)">Remove</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
