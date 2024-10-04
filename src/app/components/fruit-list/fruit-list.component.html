@@ -1,0 +1,25 @@
+<h2>Fruit List</h2>
+
+<form (submit)="addFruit()">
+  <input type="text" [(ngModel)]="newFruit.name" name="name" placeholder="Fruit Name" required />
+  <br><br><button type="submit">Add Fruit</button>
+</form><br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Number</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Fruit</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let fruit of fruits">
+    <td>{{ fruit.id }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ fruit.name }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>
+      <button (click)="removeFruit(fruit.id)">Remove</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
