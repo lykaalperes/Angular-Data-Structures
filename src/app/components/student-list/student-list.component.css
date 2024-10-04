@@ -1,0 +1,80 @@
+div {
+  width: 50%;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #4CAF50;
+  border-radius: 10px;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+}
+
+h2, h3 {
+  color: #4CAF50;
+  text-align: center;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  background-color: #e7f3e7;
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #4CAF50;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+li button {
+  background-color: #f44336;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+li button:hover {
+  background-color: #d32f2f;
+}
+
+input {
+  width: 90%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #45a049;
+}
+
+.fetched-student {
+  background-color: #e7f3e7;
+  padding: 10px;
+  margin-top: 10px;
+  border: 1px solid #4CAF50;
+  border-radius: 5px;
+}
+
+.fetched-student p {
+  margin: 0;
+  color: #333;
+  font-weight: bold;
+  text-align: center;
+}

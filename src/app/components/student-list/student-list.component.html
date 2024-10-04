@@ -1,0 +1,25 @@
+<div>
+  <h2>Student List</h2>
+  <ul>
+    <li *ngFor="let student of students">
+      {{ student.name }} - Age: {{ student.age }} - ID: {{ student.id }}
+      <button (click)="removeStudent(student.id)">Remove</button>
+    </li>
+  </ul>
+
+  <h3>Add New Student</h3>
+  <input [(ngModel)]="newStudentName" placeholder="Name" /><br>
+  <input [(ngModel)]="newStudentAge" placeholder="Age" type="number" /><br>
+  <input [(ngModel)]="newStudentId" placeholder="Student ID" type="number" /><br><br>
+  <button (click)="addStudent({ id: newStudentId, name: newStudentName,
+                                          age: newStudentAge })">
+    Add Student
+  </button>
+
+  <h3>Search Student by ID</h3>
+  <input [(ngModel)]="fetchStudentId" placeholder="Student ID" type="number" />&nbsp;&nbsp;
+  <button (click)="fetchedStudent = getStudent(fetchStudentId)">Search</button>
+  <div *ngIf="fetchedStudent">
+    <p>{{ fetchedStudent?.name }} - Age: {{ fetchedStudent?.age }} - ID: {{ fetchedStudent?.id }}</p>
+  </div>
+</div>
