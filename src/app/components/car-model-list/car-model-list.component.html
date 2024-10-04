@@ -1,0 +1,29 @@
+<h2>List of Car Models Available in the Dealership</h2>
+
+<form (submit)="addCarModel()">
+  <input type="text" [(ngModel)]="newCarModel.model" name="model" placeholder="Car Model" required />
+  <br><input type="number" [(ngModel)]="newCarModel.quantity" name="quantity" placeholder="Quantity" required min="1" />
+  <br><br><button type="submit">Add Car Model</button>
+</form>
+
+<br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Model</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Quantity</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let carModel of carModels">
+    <td>{{ carModel.model }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ carModel.quantity }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>
+      <button (click)="sellCar(carModel.model)">Sell</button>
+      <button (click)="removeCarModel(carModel.model)">Remove</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
