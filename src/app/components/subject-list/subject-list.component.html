@@ -1,0 +1,37 @@
+<h2>College Subject List</h2>
+
+<form (submit)="addSubject()">
+  <input type="text" [(ngModel)]="newSubject.name" name="name" placeholder="Subject Name" required />
+  <br><input type="text" [(ngModel)]="newSubject.description" name="description" placeholder="Subject Description" required />
+  <br><input type="number" [(ngModel)]="newSubject.units" name="units" placeholder="Units" required min="1" />
+  <br><input type="text" [(ngModel)]="newSubject.time" name="time" placeholder="Time (e.g., 10:00 AM - 12:00 PM)" required />
+  <br><input type="text" [(ngModel)]="newSubject.schedule" name="schedule" placeholder="Schedule (e.g., Mon/Wed/Fri)" required />
+  <br><br><button type="submit">Add Subject</button>
+</form><br>
+
+<br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Description</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Units</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Time</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Schedule</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let subject of subjects">
+    <td>{{ subject.name }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ subject.description }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ subject.units }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ subject.time }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ subject.schedule }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>
+      <button (click)="removeSubject(subject.name)">Remove</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
