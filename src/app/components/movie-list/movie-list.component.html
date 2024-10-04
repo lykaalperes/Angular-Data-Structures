@@ -1,0 +1,29 @@
+<h2>Available Movies in the Theater</h2>
+
+<form (submit)="addMovie()">
+  <input type="text" [(ngModel)]="newMovie.title" name="title" placeholder="Movie Title" required />
+  <br>
+  <input type="text" [(ngModel)]="newMovie.time" name="time" placeholder="Movie Time (e.g., 7:00 PM)" required />
+  <br><br>
+  <button type="submit">Add Movie</button>
+</form>
+<br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Movie Title</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Movie Time</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let movie of movies">
+    <td>{{ movie.title }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ movie.time }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>
+      <button (click)="removeMovie(movie.title)">Remove</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
