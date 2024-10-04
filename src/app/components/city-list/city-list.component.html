@@ -1,0 +1,25 @@
+<h2>List of Cities the Company Operates</h2>
+
+<p><b>Add New City</b></p>
+
+<form (submit)="addCity()">
+  <input type="text" [(ngModel)]="newCity.name" name="name" placeholder="City Name" required />
+  <br><br><button type="submit">Add City</button>
+</form><br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Cities Operated</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let city of cities">
+    <td>{{ city.name }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>
+      <button (click)="removeCity(city.name)">Remove</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
