@@ -1,0 +1,23 @@
+<h2>Book List</h2>
+
+<form (submit)="addBook()">
+  <input type="text" [(ngModel)]="newBook.title" name="title" placeholder="Book Title" required />
+  <br><br><button type="submit">Add Book</button>
+</form><br>
+
+<table>
+  <thead>
+  <tr>
+    <th>Title</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let book of books">
+    <td>{{ book.title }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>
+      <button (click)="removeBook(book.title)">Remove</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
