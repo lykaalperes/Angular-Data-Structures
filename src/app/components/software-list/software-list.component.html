@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <h2>Installed Software</h2>
+
+  <div class="input-group mb-3">
+    <input type="text" [(ngModel)]="newSoftware" class="form-control" placeholder="Add new software" />
+    <input type="text" [(ngModel)]="newVersion" class="form-control" placeholder="Version" />
+    <button class="btn btn-primary" (click)="addSoftware()">Add</button>
+  </div>
+
+  <ul class="list-group">
+    <li *ngFor="let software of software; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+      {{ software.name }} ({{ software.version }})
+      <button class="btn btn-danger btn-sm" (click)="removeSoftware(i)">Remove</button>
+    </li>
+  </ul>
+</div>
