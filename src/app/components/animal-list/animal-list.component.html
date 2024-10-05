@@ -1,0 +1,31 @@
+<h2>LYKA'S ZOO - Animal List</h2><br>
+
+<!-- Form to add a new animal -->
+<form (submit)="addAnimal()">
+  <input type="text" [(ngModel)]="newAnimal.name" name="name" placeholder="Animal Name" required />
+  <br><input type="number" [(ngModel)]="newAnimal.remaining" name="remaining" placeholder="Count" required />
+  <br><br><button type="submit">Add Animal</button>
+</form><br>
+
+<!-- Animal table displaying name, remaining count, and actions -->
+<table>
+  <thead>
+  <tr>
+    <th>Animal</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Remaining</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let animal of animals">
+    <td>{{ animal.name }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ animal.remaining }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>
+      <!-- Button to "transport" or "die" an animal and reduce its count -->
+      <button (click)="transportAnimal(animal.name)" [disabled]="animal.remaining === 0">Transport/Died</button>
+      <!-- Button to remove an animal -->&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <button (click)="removeAnimal(animal.name)">Remove</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
