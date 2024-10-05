@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <h2>Music Playlist</h2>
+
+  <div class="input-group mb-3">
+    <input type="text" [(ngModel)]="newSong.title" class="form-control" placeholder="Song Title" />
+    <input type="text" [(ngModel)]="newSong.artist" class="form-control" placeholder="Artist" />
+    <button class="btn btn-primary" (click)="addSong()">Add</button>
+  </div>
+
+  <ul class="list-group">
+    <li *ngFor="let song of songs; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+      {{ song.title }} - {{ song.artist }}
+      <button class="btn btn-danger btn-sm" (click)="removeSong(i)">Remove</button>
+    </li>
+  </ul>
+</div>
