@@ -1,0 +1,33 @@
+<h2>Sports Participation</h2><br>
+
+<!-- Buttons to record players for each sport -->
+<div *ngFor="let sport of sports">
+  <button (click)="addPlayer(sport)">
+    {{ sport.name }} ({{ sport.count }} players)
+  </button>
+
+</div><br>
+
+<!-- Show percentage of users who play each sport -->
+<h3>Participation Percentages:</h3>
+<table>
+  <thead>
+  <tr>
+    <th>Sport</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Percentage</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let sport of sports">
+    <td>{{ sport.name }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ getPercentage(sport) }}%</td>
+  </tr>
+  </tbody>
+</table><br>
+
+<!-- Form to add a new sport -->
+<h3>Add a New Sport</h3>
+<form (submit)="addSport()">
+  <input type="text" [(ngModel)]="newSport.name" name="name" placeholder="Sport Name" required />
+  <br><br><button type="submit">Add Sport</button>
+</form>
