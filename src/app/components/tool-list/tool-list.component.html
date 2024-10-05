@@ -1,0 +1,32 @@
+<h2>Big Sister's Workshop - Tool List</h2><br>
+
+<!-- Form to add a new tool -->
+<form (submit)="addTool()">
+  <input type="text" [(ngModel)]="newTool.name" name="name" placeholder="Tool Name" required />
+  <br><input type="number" [(ngModel)]="newTool.used" name="used" placeholder="Used Count" required />
+  <br><br><button type="submit">Add Tool</button>
+</form><br>
+
+<!-- Table displaying the tool name, used count, and actions -->
+<table>
+  <thead>
+  <tr>
+    <th>Tool</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>Used Count</th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Actions</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let tool of tools">
+    <td>{{ tool.name }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>{{ tool.used }}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <td>
+      <!-- Button to mark a tool as used -->
+      <button (click)="useTool(tool.name)">Use Tool</button>&nbsp;&nbsp;
+      <!-- Button to remove a tool -->
+      <button (click)="removeTool(tool.name)">Remove</button>
+
+    </td>
+  </tr>
+  </tbody>
+</table>
