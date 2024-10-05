@@ -1,0 +1,15 @@
+<div class="container mt-4">
+  <h2>Programming Languages</h2>
+
+  <div class="input-group mb-3">
+    <input type="text" [(ngModel)]="newLanguage" class="form-control" placeholder="Add new language" />
+    <button class="btn btn-primary" (click)="addLanguage()">Add</button>
+  </div>
+
+  <ul class="list-group">
+    <li *ngFor="let language of languages; let i = index" class="list-group-item d-flex justify-content-between align-items-center">
+      {{ language }}
+      <button class="btn btn-danger btn-sm" (click)="removeLanguage(i)">Remove</button>
+    </li>
+  </ul>
+</div>
